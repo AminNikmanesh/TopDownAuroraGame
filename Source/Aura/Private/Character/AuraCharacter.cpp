@@ -18,23 +18,18 @@ AAuraCharacter::AAuraCharacter()
 	bUseControllerRotationYaw=false;
 	bUseControllerRotationRoll=false;
 }
-
 void AAuraCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 	// init Ability actor info for the server.
-	
-	
+	InitAbilityActorInfo();
 }
-
 void AAuraCharacter::OnRep_PlayerState()
 {
 	Super::OnRep_PlayerState();
 	// init Ability actor info for the client.
 	InitAbilityActorInfo();
-	
 }
-
 void AAuraCharacter::InitAbilityActorInfo()
 {
 	AAuraPlayerState* AuraPlayerState = GetPlayerState<AAuraPlayerState>();
